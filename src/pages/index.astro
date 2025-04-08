@@ -1,0 +1,102 @@
+---
+
+export const prerender = true;
+
+import BaseLayout from '../layouts/Layout.astro';
+
+const pageTitle = "AI-Wijzer voor Docenten: evalueer, kies, pas toe";
+
+
+const featuredSkill = {
+  title: "Kritisch Denken & AI",
+  url: "/ontdek/vaardigheden/kritisch-denken/",
+  description: "Waarom deze skill cruciaal is bij het werken met AI."
+};
+
+
+---
+
+<BaseLayout title={pageTitle}>
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16 md:py-24 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{pageTitle}</h1>
+      <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+        Deze site helpt jou als docent om AI zó in te zetten dat het echt iets toevoegt — aan je lessen, je curriculum en aan het leren van leerlingen.
+      </p>
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+        <a href="/technieken/" class="bg-purple-700 text-white font-semibold py-2 px-6 rounded hover:bg-purple-800 transition">🛠️ AI-tools</a>
+        <a href="/wegwijs-ai/" class="bg-green-600 text-white font-semibold py-2 px-6 rounded hover:bg-green-700 transition">🧪 Test je opdracht of toets</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kernpunten -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-gray-800">Bereid je voor op het gebruik van AI.</h2>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">De AI-tools vliegen je om de oren. Deze site biedt structuur met:</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="text-4xl mb-2">💡</div>
+          <h3 class="text-xl font-semibold mb-2">Focus op Principes</h3>
+          <p class="text-gray-600">Leer de basisconcepten.</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-2">✅</div>
+          <h3 class="text-xl font-semibold mb-2">Veel gebruikte Tools</h3>
+          <p class="text-gray-600">Een selectie van relevante AI-tools, beoordeeld voor het onderwijs.</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-2">🛠️</div>
+          <h3 class="text-xl font-semibold mb-2">Evaluatiekaders</h3>
+          <p class="text-gray-600">Leer zelf nieuwe tools kritisch beoordelen op waarde en veiligheid.</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <a href="/wegwijs-ai/" class="text-blue-600 hover:underline font-semibold">Lees meer over 'Wegwijs in AI' →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Direct </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[featuredSkill].map(item => (
+          <div class="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+            <h3 class="text-xl font-semibold mb-2">{item.title}</h3>
+            <p class="text-gray-600 mb-4">{item.description}</p>
+            <a href={item.url} class="text-blue-600 hover:underline font-semibold">Lees meer →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigatie -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Ontdek de Site</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">🧠 Ontdek Creativiteit</h3>
+          <p class="text-gray-600 mb-4">Verdiep je in de kernvaardigheden en de relatie met AI.</p>
+          <a href="/ontdek/" class="text-blue-600 hover:underline font-semibold">Start met Ontdekken →</a>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">🤸 Creatieve Technieken</h3>
+          <p class="text-gray-600 mb-4">Praktische oefeningen om zelf of met leerlingen te doen.</p>
+          <a href="/technieken/" class="text-blue-600 hover:underline font-semibold">Vind Oefeningen →</a>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">🧭 Wegwijs in AI</h3>
+          <p class="text-gray-600 mb-4">Gecureerde tools, evaluatiekaders en ethische gidsen.</p>
+          <a href="/wegwijs-ai/" class="text-blue-600 hover:underline font-semibold">Navigeer door AI →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

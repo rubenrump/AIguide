@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../../../layouts/Layout.astro';
+
+const pageTitle = "Kritisch Denken & AI";
+---
+
+<BaseLayout title={pageTitle}>
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold mb-4 text-gray-800">🧠 Kritisch Denken & AI</h1>
+      <p class="text-gray-600 mb-2 text-lg italic">Waarom jij het verschil maakt, niet de technologie</p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-2">💡 Wat is kritisch denken?</h2>
+      <p class="text-gray-600 mb-6">
+        Kritisch denken betekent <strong>nadenken over je eigen denken</strong>. Het gaat om het analyseren, bevragen en evalueren van informatie voordat je conclusies trekt. Bij AI is dit cruciaal, omdat AI niet "weet" wat waar is – het voorspelt alleen wat waarschijnlijk klinkt op basis van data.
+      </p>
+
+      <h2 class="text-xl font-semibold mb-2">🤖 Waarom is kritisch denken belangrijk bij AI?</h2>
+      <ul class="list-disc list-inside text-gray-600 mb-6">
+        <li><strong>Ongemerkt fouten maken:</strong> bijvoorbeeld: een AI kan verzonnen bronnen noemen of foute feiten geven met overtuigende toon.</li>
+        <li><strong>Bias bevatten:</strong> AI is getraind op data van mensen – en mensen hebben vooroordelen. Die kunnen in de output terugkomen.</li>
+        <li><strong>Geen moreel besef hebben:</strong> een AI weet niet of iets ethisch verantwoord is. Jij moet die afweging maken.</li>
+        <li><strong>Creatief en slim lijken, zonder het te zijn:</strong> AI maakt gebruik van patronen, niet van begrip. Het geeft suggesties, geen waarheden.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mb-2">🔍 Voorbeelden van kritisch denken in actie</h2>
+      <div class="overflow-auto mb-6">
+        <table class="table-auto w-full text-left border-collapse text-gray-700">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="p-2 border">Situatie</th>
+              <th class="p-2 border">Kritische vragen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="p-2 border">Je krijgt een AI-gegenereerd artikel</td>
+              <td class="p-2 border">Klopt de inhoud? Kan ik dit verifiëren?</td>
+            </tr>
+            <tr>
+              <td class="p-2 border">Je laat AI een beeld maken van een historisch moment</td>
+              <td class="p-2 border">Is het visueel accuraat? Of speelt bias een rol?</td>
+            </tr>
+            <tr>
+              <td class="p-2 border">Je gebruikt AI om een presentatie te maken</td>
+              <td class="p-2 border">Past dit bij mijn doelgroep? Is het taalgebruik inclusief en helder?</td>
+            </tr>
+            <tr>
+              <td class="p-2 border">Je krijgt antwoord op een ethische vraag</td>
+              <td class="p-2 border">Is dit antwoord moreel verantwoord of slechts technisch logisch?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-xl font-semibold mb-2">🛠️ Hoe ontwikkel je kritisch denken met AI?</h2>
+      <ol class="list-decimal list-inside text-gray-600 mb-6">
+        <li><strong>Vraag door:</strong><br/>
+          Waarom geeft de AI dit antwoord?<br/>
+          Welke aannames zitten hierin?<br/>
+          Wat wordt er weggelaten?
+        </li>
+        <li><strong>Vergelijk bronnen:</strong><br/>
+          Laat AI alternatieven geven.<br/>
+          Vergelijk de AI-output met echte bronnen of vakliteratuur.
+        </li>
+        <li><strong>Reflecteer op bias:</strong><br/>
+          Komt dit uit een bepaald perspectief?<br/>
+          Wie wordt er gehoord – en wie niet?
+        </li>
+        <li><strong>Gebruik scaffolds en checklists:</strong><br/>
+          Werk met vragenlijstjes zoals:<br/>
+          - Is dit feitelijk juist?<br/>
+          - Is dit origineel of herhaling?<br/>
+          - Wat zegt mijn eigen oordeel hierover?
+        </li>
+      </ol>
+
+      <h2 class="text-xl font-semibold mb-2">🧭 Tools en technieken die kunnen helpen</h2>
+      <div class="overflow-auto mb-6">
+        <table class="table-auto w-full text-left border-collapse text-gray-700">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="p-2 border">Tool</th>
+              <th class="p-2 border">Wat het doet</th>
+              <th class="p-2 border">Kritisch gebruik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="p-2 border">ChatGPT</td>
+              <td class="p-2 border">Genereert tekst</td>
+              <td class="p-2 border">Stel meerdere keren dezelfde vraag, vergelijk antwoorden.</td>
+            </tr>
+            <tr>
+              <td class="p-2 border">Craiyon / DALL·E</td>
+              <td class="p-2 border">Beeldgeneratie</td>
+              <td class="p-2 border">Reflecteer op stereotypen in beelden.</td>
+            </tr>
+            <tr>
+              <td class="p-2 border">Turnitin / Scribbr</td>
+              <td class="p-2 border">Plagiaatcontrole</td>
+              <td class="p-2 border">Controleer of teksten uniek zijn.</td>
+            </tr>
+            <tr>
+              <td class="p-2 border">FactCheck.org / Wikipedia</td>
+              <td class="p-2 border">Feiten checken</td>
+              <td class="p-2 border">Gebruik als controle naast AI-output.</td>
+            </tr>
+            <tr>
+              <td class="p-2 border">AI Bias Explorers</td>
+              <td class="p-2 border">Laat bias zien in taalmodellen</td>
+              <td class="p-2 border">Goed voor bewustwording.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-xl font-semibold mb-2">📚 Meer leren?</h2>
+      <ul class="list-disc list-inside text-gray-600 mb-6">
+        <li><strong>Websites:</strong>
+          <ul class="ml-4 list-disc list-inside">
+            <li><a href="https://aiforeducation.io" class="text-blue-600 underline">AI for Education</a></li>
+            <li><a href="https://www.commonsense.org/education/" class="text-blue-600 underline">Common Sense Media: AI Literacy</a></li>
+            <li><a href="https://responsible.ai/" class="text-blue-600 underline">AI + Ethics Curriculum (MIT)</a></li>
+          </ul>
+        </li>
+        <li><strong>Boeken:</strong> Weapons of Math Destruction – Cathy O’Neil, Hello World – Hannah Fry, You Look Like a Thing and I Love You – Janelle Shane</li>
+        <li><strong>Onderwijsinitiatieven:</strong> <a href="https://ai4youth.org" class="text-blue-600 underline">AI4Youth</a>, <a href="https://ecp.nl/dossier/ai-in-het-onderwijs/" class="text-blue-600 underline">ECP – AI in het onderwijs</a></li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mb-2">🎓 Tot slot</h2>
+      <p class="text-gray-600 mb-4">
+        AI is een krachtige gereedschapskist, maar <strong>jij</strong> bent degene die beslist hoe en waarvoor je het inzet. Kritisch denken is dus geen extraatje, maar de kern van verantwoord AI-gebruik. Oefening en nieuwsgierigheid zijn je beste wapens.
+      </p>
+      <p class="text-gray-700 font-semibold italic text-lg">🌱 AI kan veel, maar het is jouw denkvermogen dat het verschil maakt.</p>
+    </div>
+  </section>
+</BaseLayout>
+

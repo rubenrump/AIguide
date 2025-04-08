@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../layouts/Layout.astro';
+
+const pageTitle = "Evaluatiekader voor AI-tools in het Onderwijs";
+---
+
+<BaseLayout title={pageTitle}>
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold mb-4 text-gray-800">{pageTitle}</h1>
+      <p class="text-gray-600 mb-6">
+        Gebruik dit kader om snel en doordacht te bepalen of een AI-tool geschikt is voor jouw onderwijspraktijk. Print het uit, gebruik het in teamsessies of hang het op.
+      </p>
+
+      <h2 class="text-xl font-semibold mb-4">Vragen om te stellen</h2>
+      <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-8">
+        <li>Wat is het onderwijsdoel?</li>
+        <li>Wie gebruikt de tool: docent, leerling, of beiden?</li>
+        <li>Is de tool gebruiksvriendelijk?</li>
+        <li>Heeft de tool educatieve meerwaarde?</li>
+        <li>Wat zijn de kosten en het verdienmodel?</li>
+        <li>Waar worden gegevens opgeslagen? Is het AVG-proof?</li>
+        <li>Is de werking van de tool transparant?</li>
+        <li>Zijn er ethische risico's (bias, copyright, manipulatie)?</li>
+        <li>Zijn er al alternatieven beschikbaar?</li>
+      </ol>
+
+      <h2 class="text-xl font-semibold mb-4">Downloads</h2>
+      <ul class="list-disc list-inside text-blue-600 mb-8 space-y-2">
+        <li><a href="/downloads/Evaluatiekader_AI_Tools_Onderwijs.pdf" class="hover:underline">📄 Download het Evaluatiekader (PDF)</a></li>
+        <li><a href="/downloads/Toolvergelijking_AI_Template.xlsx" class="hover:underline">📊 Download de Toolvergelijking Template (Excel)</a></li>
+      </ul>
+
+      <div class="text-center">
+        <a href="/wegwijs-ai/" class="text-blue-600 font-semibold hover:underline">← Terug naar Wegwijs in AI</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

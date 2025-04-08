@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/Layout.astro';
+
+const tools = [
+  {
+    category: "Grote Taalmodellen (LLMs)",
+    items: [
+      { name: "ChatGPT (OpenAI)", description: "Voor tekst, brainstorm, uitleg", url: "https://chat.openai.com" },
+      { name: "Gemini (Google)", description: "Multimodaal, goede actualiteit", url: "https://gemini.google.com" },
+      { name: "Microsoft Copilot", description: "AI in Word, PowerPoint, Teams", url: "https://copilot.microsoft.com" },
+      { name: "Claude (Anthropic)", description: "Veilig en goed voor lange teksten", url: "https://claude.ai" },
+    ]
+  },
+  {
+    category: "Beeldgeneratie & Visualisatie",
+    items: [
+      { name: "Adobe Firefly", description: "Creatieve AI-afbeeldingen, rechtenvrij", url: "https://firefly.adobe.com" },
+      { name: "Canva (Magic Design)", description: "AI-layouts, visuals, presentaties", url: "https://www.canva.com" },
+      { name: "Microsoft Designer", description: "Ontwerpen met vooraf gegenereerde prompts", url: "https://designer.microsoft.com" },
+      { name: "DALL·E 3", description: "Beeldgeneratie met GPT", url: "https://chat.openai.com" },
+      { name: "Midjourney", description: "Artistieke beelden via Discord", url: "https://www.midjourney.com" },
+    ]
+  },
+  {
+    category: "Presentatie & Ontwerp",
+    items: [
+      { name: "Tome", description: "AI-gegenereerde presentaties en verhalen", url: "https://tome.app" },
+      { name: "Gamma", description: "Slides en infographics via AI", url: "https://gamma.app" },
+      { name: "Canva Presentaties", description: "Visuele presentatiegenerator", url: "https://www.canva.com/presentations" },
+    ]
+  },
+  {
+    category: "Muziekcreatie",
+    items: [
+      { name: "Suno.ai", description: "Muziek genereren met AI (tekst naar audio)", url: "https://suno.ai" },
+    ]
+  },
+  {
+    category: "Educatief & Praktisch in de klas",
+    items: [
+      { name: "Quizlet (Q-Chat)", description: "AI ondersteunde flashcards", url: "https://quizlet.com" },
+      { name: "Khanmigo", description: "AI tutor via Khan Academy (beta)", url: "https://www.khanacademy.org/khan-labs" },
+      { name: "ChatGPT Workshop ROC", description: "Voorbeeldles: ChatGPT in de klas", url: "https://xerte.talnet.nl/play.php?template_id=61#page1" },
+      { name: "Handreiking ROC Midden Nederland", description: "Handleiding AI voor leerlingen/docenten", url: "https://xerte.rocmn.nl/play.php?template_id=147" },
+    ]
+  },
+  {
+    category: "Ondersteunend & Schrijfhulp",
+    items: [
+      { name: "Perplexity AI", description: "Slimme zoekmachine met bronvermelding", url: "https://www.perplexity.ai" },
+      { name: "Grammarly", description: "Hulp bij schrijven", url: "https://www.grammarly.com" },
+      { name: "LanguageTool", description: "Alternatief voor grammatica- en stijlhulp", url: "https://languagetool.org" },
+    ]
+  }
+];
+
+const pageTitle = "AI Toolgids voor Onderwijs (April 2025)";
+---
+
+<BaseLayout title={pageTitle}>
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h1 class="text-3xl font-bold mb-8 text-gray-800">{pageTitle}</h1>
+      {tools.map(category => (
+        <div class="mb-10">
+          <h2 class="text-2xl font-semibold text-gray-700 mb-4">✅ {category.category}</h2>
+          <ul class="space-y-2">
+            {category.items.map(tool => (
+              <li class="border border-gray-200 p-4 rounded-md shadow-sm hover:shadow-md transition">
+                <a href={tool.url} class="text-blue-600 font-semibold hover:underline" target="_blank" rel="noopener">{tool.name}</a>
+                <p class="text-gray-600 text-sm">{tool.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/Layout.astro';
+
+const onderdelen = [
+  {
+    title: "Wat is mijn rol in een tijdperk van AI en veel innovatieve ontwikkelingen?",
+    url: "/ontdek/wat-is-creativiteit/",
+    description: "Inzichten over het creatieve proces, mythes en het belang van de docent in een tijdperk van AI."
+  },
+  {
+    title: "Kernvaardigheden",
+    url: "/ontdek/vaardigheden/kernvaardigheden/kernvragen/",
+    description: "Ontdek vaardigheden zoals divergent denken, observeren, vragen stellen en meer."
+  },
+];
+---
+
+<BaseLayout title="De Menselijke Meerwaarde">
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold mb-4 text-gray-800">De Menselijke Meerwaarde</h1>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+        Wat is jouw kracht als docent in een tijd waarin AI steeds meer mogelijk maakt? Wat voeg jij toe wat AI nooit kan vervangen?
+      </p>
+
+      <div class="text-left max-w-3xl mx-auto mb-12 space-y-6 text-gray-700">
+        <h2 class="text-2xl font-semibold">1. Wat maakt jou als docent uniek?</h2>
+        <p>Een AI kan informatie geven, maar geen veilige leeromgeving bieden. Geen aanmoediging, geen humor, geen subtiele blik. Jouw kracht ligt in de relatie, het aanvoelen, het begeleiden, het stellen van betekenisvolle vragen. Je kent je leerlingen — hun ritmes, hun valkuilen, hun potentie.</p>
+
+        <h2 class="text-2xl font-semibold">2. Wanneer versterkt AI jouw les? En wanneer niet?</h2>
+        <p>AI is geen doel op zich. Het is een hulpmiddel dat alleen zinvol is als het het leerproces verdiept. Gebruik het om te inspireren, om repetitieve taken te versnellen of als startpunt voor kritisch denken. Maar wees kritisch: wat moet een leerling echt zelf leren begrijpen, oefenen of voelen?</p>
+
+        <h2 class="text-2xl font-semibold">3. Reflectievragen voor docenten</h2>
+        <p>Deze interactieve reflectie helpt je inzicht te krijgen in jouw eigen rol:</p>
+        <div x-data="{ open: false }" class="border rounded-lg p-4 bg-gray-50">
+          <button @click="open = !open" class="font-semibold text-blue-700 hover:underline mb-2">Klik hier voor reflectievragen</button>
+          <div x-show="open" class="space-y-2">
+            <ul class="list-disc list-inside">
+              <li>Waar zit mijn menselijke meerwaarde in deze les?</li>
+              <li>Wat kunnen mijn leerlingen alleen leren via interactie en dialoog?</li>
+              <li>Hoe gebruik ik mijn empathie of intuïtie als begeleidingsinstrument?</li>
+              <li>Wanneer heb ik voor het laatst bewust níet gekozen voor technologie, en waarom?</li>
+              <li>Welke vormen van feedback kunnen alleen van mij als mens komen?</li>
+              <li>Wat wil ik dat mijn leerlingen van mij onthouden, niet van een tool?</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-semibold">4. Stellingen om over in gesprek te gaan</h2>
+        <ul class="list-disc list-inside italic text-gray-800">
+          <li>Als AI iets sneller of efficiënter kan dan ik, ben ik verplicht het te gebruiken.</li>
+          <li>Een goede docent weet wanneer géén technologie de beste keuze is.</li>
+          <li>AI vraagt om meer pedagogische gevoeligheid, niet minder.</li>
+          <li>Als we leerlingen willen leren omgaan met technologie, moeten we als mens het verschil blijven maken.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold">5. Aansluiting bij de richtlijnen van SintLucas</h2>
+        <ul class="list-disc list-inside">
+          <li>AI mag het leerproces verrijken, maar niet vervangen.</li>
+          <li>Transparantie over het gebruik van AI is essentieel.</li>
+          <li>De menselijke begeleiding en beoordeling blijft noodzakelijk.</li>
+          <li>Gebruik AI bewust, met oog voor ethiek, privacy en energieverbruik.</li>
+        </ul>
+        <p class="text-sm mt-4 text-gray-500">
+          Gebaseerd op de <a class="underline" href="/richtlijnen-ai">Richtlijnen AI SintLucas VMBO</a> (februari 2025).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        {onderdelen.map((item) => (
+          <div class="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition duration-300">
+            <h2 class="text-xl font-semibold mb-2">{item.title}</h2>
+            <p class="text-gray-600 mb-4">{item.description}</p>
+            <a href={item.url} class="text-blue-600 hover:underline font-semibold">Lees Meer &rarr;</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

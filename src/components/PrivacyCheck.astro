@@ -1,0 +1,29 @@
+---
+const { tool, datum, wijziging, gevolgen, advies } = Astro.props;
+---
+
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-4 text-gray-800">Privacycheck: {tool}</h1>
+    <p class="text-gray-600 mb-6">Laatste update: {datum}</p>
+
+    <h2 class="text-xl font-semibold mb-4">🔍 Wat is er veranderd?</h2>
+    <p class="text-gray-600 mb-6">{wijziging}</p>
+
+    <h2 class="text-xl font-semibold mb-4">⚠️ Wat betekent dit voor onderwijsgebruik?</h2>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
+      {gevolgen.map(punt => <li>{punt}</li>)}
+    </ul>
+
+    <h2 class="text-xl font-semibold mb-4">✅ Wat kun je doen?</h2>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
+      {advies.map(punt => <li>{punt}</li>)}
+    </ul>
+
+    <div class="text-center">
+      <a href="/wegwijs-ai/evaluatiekader/" class="text-blue-600 font-semibold hover:underline">
+        → Bekijk het Evaluatiekader
+      </a>
+    </div>
+  </div>
+</section>

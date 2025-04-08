@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/Layout.astro';
+import CurriculumScan from '../../components/scan/CurriculumScan.astro';
+
+const pageTitle = "Wegwijs in AI voor het Onderwijs";
+---
+
+<BaseLayout title={pageTitle}>
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold mb-4 text-gray-800">{pageTitle}</h1>
+      <p class="text-gray-600 mb-6">
+        Deze gids helpt je om AI in je onderwijs te begrijpen, selecteren en verantwoord toe te passen. Geen hype, wel houvast.
+      </p>
+
+      <!-- ✅ CURRICULUMSCAN GEÏNTEGREERD BOVENAAN -->
+      <div class="mb-12 bg-white shadow rounded-2xl p-6">
+        <h2 class="text-2xl font-bold text-center mb-6">🧪 Test je Opdracht of Toets: CurriculumScan</h2>
+        <CurriculumScan />
+      </div>
+
+      <h2 class="text-xl font-semibold mb-4">🔑 Kernprincipes</h2>
+      <ul class="list-disc list-inside text-gray-600 mb-6 space-y-1">
+        <li><strong>Begin bij het doel:</strong> Wat wil je dat leerlingen leren?</li>
+        <li><strong>Tools zijn hulpmiddelen, geen doelen op zich.</strong></li>
+        <li><strong>Focus op strategieën:</strong> Begrijpen, experimenteren, evalueren.</li>
+        <li><strong>AI verandert snel:</strong> Werk met principes, niet met lijstjes alleen.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mb-4">🧰 Evaluatiekader: Zo kies je een tool</h2>
+      <p class="text-gray-600 mb-2">Gebruik deze vragen om een AI-tool te beoordelen:</p>
+      <ul class="list-disc list-inside text-gray-600 mb-6 space-y-1">
+        <li>Lost deze tool een echt probleem op in mijn lespraktijk?</li>
+        <li>Is de tool gebruiksvriendelijk voor mij en/of mijn leerlingen?</li>
+        <li>Wat zijn de privacyvoorwaarden en is het veilig voor onderwijsgebruik?</li>
+        <li>Zijn er verborgen kosten of commerciële belangen?</li>
+        <li>Heeft het een duidelijke educatieve meerwaarde?</li>
+      </ul>
+      <p class="text-gray-600 mb-4">
+        👉 <a href="/wegwijs-ai/evaluatiekader/" class="text-blue-600 font-semibold hover:underline">Download het volledige evaluatiekader als PDF</a>
+      </p>
+      
+
+      <h2 class="text-xl font-semibold mb-4">⚖️ Ethische Aandachtspunten</h2>
+      <p class="text-gray-600 mb-6">
+        AI is geen neutraal hulpmiddel. Let op bias, copyright, transparantie en authenticiteit. Bespreek met leerlingen: Wat betekent “eigen werk” nog? Wat is ‘eerlijk’ gebruik?
+      </p>
+
+      <h2 class="text-xl font-semibold mb-4">📚 Tools & Gidsen</h2>
+      <ul class="list-disc list-inside text-blue-600 mb-8 space-y-1">
+        <li><a href="/ontdek/vaardigheden/kritisch-denken/" class="hover:underline">Kritisch Denken & AI</a></li>
+        <li><a href="/wegwijs-ai/basisset/" class="hover:underline">Toolgids: Basisset AI-tools</a></li>
+      </ul>
+
+      <div class="text-center mt-8 mb-16">
+        <a href="/technieken/" class="text-blue-600 font-semibold hover:underline">→ Ga naar de oefeningen</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

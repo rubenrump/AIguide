@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-proof CurriculumScan</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+<div 
+  x-data="{
+    step: 'intro',
+    type: '',
+    selectedQuestions: [],
+    allQuestions: {
+      creatief: [
+        { text: 'Sluit de opdracht aan op duidelijke leerdoelen?', theory: 'Een AI-proof opdracht begint met heldere leerdoelen: weet je wat je toetst?', answer: '', note: '', showTheory: false },
+        { text: 'Is de opdracht realistisch en herkenbaar voor leerlingen?', theory: 'Realistische taken motiveren meer en zijn minder makkelijk door AI te genereren.', answer: '', note: '', showTheory: false },
+        { text: 'Is het werk herkenbaar als eigen werk van de leerling?', theory: 'Let op schrijfstijl, reflectie en eigen inbreng. AI-teksten zijn vaak te algemeen.', answer: '', note: '', showTheory: false },
+        { text: 'Biedt de opdracht ruimte voor eigen keuzes, mening of ervaring?', theory: 'Dat maakt het werk uniek en moeilijk door AI te kopiëren.', answer: '', note: '', showTheory: false },
+        { text: 'Moeten leerlingen uitleggen hoe ze AI eventueel hebben gebruikt?', theory: 'Transparantie helpt om AI verantwoord in te zetten.', answer: '', note: '', showTheory: false },
+        { text: 'Wordt AI op een leerzame manier ingezet (als hulp, niet als vervanging)?', theory: 'AI mag het denkproces niet vervangen maar wel ondersteunen.', answer: '', note: '', showTheory: false },
+        { text: 'Zijn leerlingen met minder digitale vaardigheden of toegang niet in het nadeel?', theory: 'Zorg dat iedereen eerlijke kansen heeft.', answer: '', note: '', showTheory: false },
+        { text: 'Is er ruimte voor feedback tijdens het proces, niet alleen achteraf?', theory: 'Tussentijdse feedback maakt AI-gebruik bespreekbaar.', answer: '', note: '', showTheory: false },
+        { text: 'Voegt de docent iets toe wat AI niet kan (zoals begeleiding of duiding)?', theory: 'De menselijke factor blijft essentieel in begeleiding en motivatie.', answer: '', note: '', showTheory: false }
+      ],
+      schriftelijk: [
+        { text: 'Beoordeelt deze toets vaardigheden die verder gaan dan kennis reproduceren?', theory: 'AI kan feitjes geven, maar inzicht en toepassing zijn lastiger.', answer: '', note: '', showTheory: false },
+        { text: 'Is er variatie in vraagtypen (zoals open, toepasvragen)?', theory: 'Variatie verkleint de kans dat AI de toets moeiteloos oplost.', answer: '', note: '', showTheory: false },
+        { text: 'Is zichtbaar hoe de leerling tot het antwoord is gekomen (denkstappen)?', theory: 'Een tussenstap dwingt tot uitleg en laat inzicht zien.', answer: '', note: '', showTheory: false },
+        { text: 'Is de context herkenbaar voor de leerling?', theory: 'Herkenbare context vergroot betrokkenheid en vermindert AI-risico.', answer: '', note: '', showTheory: false },
+        { text: 'Moeten leerlingen uitleggen hoe ze AI eventueel hebben gebruikt?', theory: 'Transparantie helpt om AI verantwoord in te zetten.', answer: '', note: '', showTheory: false },
+        { text: 'Zijn leerlingen met minder digitale vaardigheden of toegang niet in het nadeel?', theory: 'Zorg dat iedereen eerlijke kansen heeft.', answer: '', note: '', showTheory: false }
+      ],
+      praktisch: [
+        { text: 'Is het proces van uitvoeren of bouwen zichtbaar in het eindproduct?', theory: 'Maak zichtbaar hoe het product tot stand komt, niet alleen het eindresultaat.', answer: '', note: '', showTheory: false },
+        { text: 'Zijn de gebruikte materialen, software of handelingen passend bij het leerdoel?', theory: 'Zorg dat het handelen aansluit op wat geleerd moet worden.', answer: '', note: '', showTheory: false },
+        { text: 'Wordt samenwerking of communicatie meegenomen in de beoordeling?', theory: 'Bij praktische taken hoort vaak samenwerking of overleg.', answer: '', note: '', showTheory: false },
+        { text: 'Moeten leerlingen reflecteren op hun werkwijze of keuzes?', theory: 'Zelfreflectie maakt het moeilijker voor AI om het werk over te nemen.', answer: '', note: '', showTheory: false },
+        { text: 'Is de opdracht haalbaar met beperkte AI-hulp of zonder digitale ondersteuning?', theory: 'Sommige praktische opdrachten vragen fysieke handelingen.', answer: '', note: '', showTheory: false }
+      ],
+      reflectief: [
+        { text: 'Wordt de persoonlijke ontwikkeling of mening van de leerling zichtbaar?', theory: 'Reflectieve opdrachten moeten authentiek zijn.', answer: '', note: '', showTheory: false },
+        { text: 'Is het gebruikte materiaal of portfolio uniek voor de leerling?', theory: 'Een persoonlijk portfolio of verslag is moeilijk door AI te vervalsen.', answer: '', note: '', showTheory: false },
+        { text: 'Moeten leerlingen verbanden leggen tussen eigen ervaringen en de leerstof?', theory: 'Verbinding met de eigen wereld maakt AI-gebruik lastiger.', answer: '', note: '', showTheory: false },
+        { text: 'Is het reflectieproces goed begeleid en voorzien van feedbackmomenten?', theory: 'Begeleiding voorkomt inleveren van AI-geproduceerd werk.', answer: '', note: '', showTheory: false },
+        { text: 'Kun jij als docent inschatten of het werk echt van de leerling komt?', theory: 'Authenticiteit is cruciaal voor reflectieve opdrachten.', answer: '', note: '', showTheory: false }
+      ]
+    },
+    get yesCount() {
+      return this.selectedQuestions.filter(q => q.answer === 'Ja').length;
+    },
+    startScan(type) {
+      this.type = type;
+      this.selectedQuestions = JSON.parse(JSON.stringify(this.allQuestions[type]));
+      this.step = 'questions';
+    },
+    reset() {
+      this.step = 'intro';
+      this.type = '';
+      this.selectedQuestions = [];
+    }
+  }"
+  class="container mx-auto px-4 py-8"
+>
+  <!-- Intro -->
+  <div x-show="step === 'intro'" class="bg-white p-6 rounded-xl shadow">
+    <h2 class="text-xl font-bold mb-4">🧪 AI-proof CurriculumScan</h2>
+    <p class="mb-4">Kies het type toets of opdracht:</p>
+    <div class="space-x-2 flex flex-wrap gap-y-2">
+      <button @click="startScan('creatief')" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">🎨 Creatief</button>
+      <button @click="startScan('schriftelijk')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">📝 Schriftelijk</button>
+      <button @click="startScan('praktisch')" class="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">🛠️ Praktisch</button>
+      <button @click="startScan('reflectief')" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">🔍 Reflectief</button>
+    </div>
+  </div>
+
+  <!-- Vragen -->
+  <form x-show="step === 'questions'" @submit.prevent="step = 'results'" class="space-y-6">
+    <template x-for="(q, index) in selectedQuestions" :key="index">
+      <div>
+        <label class="block font-semibold text-gray-800 mb-1 flex items-center">
+          <span x-text="`${index + 1}. ${q.text}`"></span>
+          <button type="button" @click="selectedQuestions[index].showTheory = !selectedQuestions[index].showTheory" class="ml-2 text-blue-600 hover:underline">i</button>
+        </label>
+        <p x-show="q.showTheory" x-text="q.theory" class="text-sm text-gray-600 mb-2"></p>
+        <div class="space-x-4">
+          <label><input type="radio" :name="'q'+index" value="Ja" x-model="q.answer" /> Ja</label>
+          <label><input type="radio" :name="'q'+index" value="Nee" x-model="q.answer" /> Nee</label>
+          <label><input type="radio" :name="'q'+index" value="Twijfel" x-model="q.answer" /> Twijfel</label>
+        </div>
+        <textarea x-model="q.note" class="mt-2 w-full p-2 border rounded" rows="2" placeholder="Opmerking of reflectie..."></textarea>
+      </div>
+    </template>
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">📊 Bekijk resultaat</button>
+  </form>
+
+  <!-- Resultaten -->
+  <div x-show="step === 'results'" class="space-y-4">
+    <h2 class="text-2xl font-bold mb-4">📊 Resultaat</h2>
+    <template x-for="(q, i) in selectedQuestions" :key="i">
+      <div class="border-b pb-2">
+        <p><strong x-text="`${i + 1}. ${q.text}`"></strong></p>
+        <p>Antwoord: <span class="font-semibold" x-text="q.answer || 'Geen antwoord'"></span></p>
+        <p x-show="q.note"><em x-text="`Notitie: ${q.note}`"></em></p>
+      </div>
+    </template>
+    <div class="bg-gray-100 p-4 rounded">
+      <p class="font-semibold">📌 Algemene reflectie:</p>
+      <ul class="list-disc list-inside text-sm">
+        <li x-show="yesCount >= 7">✔️ Sterke educatieve meerwaarde.</li>
+        <li x-show="yesCount >= 4 && yesCount < 7">⚠️ Deels AI-proof. Herzie kwetsbare onderdelen.</li>
+        <li x-show="yesCount < 4">❗Hoog risico op AI-overname. Overweeg herontwerp.</li>
+      </ul>
+    </div>
+    <div class="mt-6 space-x-4">
+      <button @click="reset()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">🔁 Nieuwe scan starten</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
